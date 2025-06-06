@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "dirt_generator",
+  "key": {
+    "#": {
+      "item": "compresseddirt:81x_dirt"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "item": "compresseddirt:dirt_generator"
+  },
+  "show_notification": true
+}

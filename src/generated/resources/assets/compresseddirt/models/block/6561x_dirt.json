@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "compresseddirt:block/6561x_dirt"
+  }
+}

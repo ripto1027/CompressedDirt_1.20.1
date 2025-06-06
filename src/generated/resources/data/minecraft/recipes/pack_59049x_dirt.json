@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "pack",
+  "key": {
+    "#": {
+      "item": "compresseddirt:6561x_dirt"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "compresseddirt:59049x_dirt"
+  },
+  "show_notification": true
+}

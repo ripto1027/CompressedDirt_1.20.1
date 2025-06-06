@@ -1,0 +1,21 @@
+{
+  "bookshelf:load_conditions": [
+    {
+      "type": "bookshelf:item_exists",
+      "values": [
+        "compresseddirt:81x_dirt"
+      ]
+    }
+  ],
+  "type": "botanypots:soil",
+  "input": {
+    "item": "compresseddirt:81x_dirt"
+  },
+  "display": {
+    "block": "compresseddirt:81x_dirt"
+  },
+  "categories": [
+    "dirt"
+  ],
+  "growthModifier": 4
+}

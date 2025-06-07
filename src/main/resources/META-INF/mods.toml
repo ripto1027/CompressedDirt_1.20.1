@@ -74,13 +74,13 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId = "bookshelf"
     mandatory = true
-    versionRange = "[20.2.13,)"
+    versionRange = "${bookshelf_version_range}"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
     modId = "botanypots"
     mandatory = true
-    versionRange = "[13.0.41,)"
+    versionRange = "${botanypots_version_range}"
     ordering = "NONE"
     side = "BOTH"

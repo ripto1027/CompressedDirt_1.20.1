@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_9x_dirt": {
+    "has_compressed_dirt": {
       "conditions": {
         "items": [
           {
             "items": [
-              "compresseddirt:9x_dirt"
+              "compresseddirt:compressed_dirt"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_9x_dirt",
+      "has_compressed_dirt",
       "has_the_recipe"
     ]
   ],

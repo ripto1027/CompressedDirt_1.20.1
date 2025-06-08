@@ -16,11 +16,11 @@ public class IBlockLootSubProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        dropSelf(IBlocks._9X_DIRT.get());
-        dropSelf(IBlocks._81X_DIRT.get());
-        dropSelf(IBlocks._729X_DIRT.get());
-        dropSelf(IBlocks._6561X_DIRT.get());
-        dropSelf(IBlocks._59049X_DIRT.get());
+        dropSelf(IBlocks.COMPRESSED_DIRT.get());
+        dropSelf(IBlocks.DOUBLE_COMPRESSED_DIRT.get());
+        dropSelf(IBlocks.TRIPLE_COMPRESSED_DIRT.get());
+        dropSelf(IBlocks.QUADRUPLE_COMPRESSED_DIRT.get());
+        dropSelf(IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
         dropSelf(IBlocks.DIRT_GENERATOR.get());
     }
 

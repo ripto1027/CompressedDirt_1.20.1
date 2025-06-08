@@ -17,12 +17,12 @@ public class IRecipeProvider extends RecipeProvider{
 
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> pWriter) {
-        nineBlockStorageRecipes(pWriter, Blocks.DIRT, IBlocks._9X_DIRT.get());
-        nineBlockStorageRecipes(pWriter, IBlocks._9X_DIRT.get(), IBlocks._81X_DIRT.get());
-        nineBlockStorageRecipes(pWriter, IBlocks._81X_DIRT.get(), IBlocks._729X_DIRT.get());
-        nineBlockStorageRecipes(pWriter, IBlocks._729X_DIRT.get(), IBlocks._6561X_DIRT.get());
-        nineBlockStorageRecipes(pWriter, IBlocks._6561X_DIRT.get(), IBlocks._59049X_DIRT.get());
-        shaped(pWriter, IBlocks.DIRT_GENERATOR.get(), IBlocks._81X_DIRT.get());
+        nineBlockStorageRecipes(pWriter, Blocks.DIRT, IBlocks.COMPRESSED_DIRT.get());
+        nineBlockStorageRecipes(pWriter, IBlocks.COMPRESSED_DIRT.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get());
+        nineBlockStorageRecipes(pWriter, IBlocks.DOUBLE_COMPRESSED_DIRT.get(), IBlocks.TRIPLE_COMPRESSED_DIRT.get());
+        nineBlockStorageRecipes(pWriter, IBlocks.TRIPLE_COMPRESSED_DIRT.get(), IBlocks.QUADRUPLE_COMPRESSED_DIRT.get());
+        nineBlockStorageRecipes(pWriter, IBlocks.QUADRUPLE_COMPRESSED_DIRT.get(), IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
+        shaped(pWriter, IBlocks.DIRT_GENERATOR.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get());
     }
 
     protected void nineBlockStorageRecipes(Consumer<FinishedRecipe> pWriter, Block pUnpacked, Block pPacked) {
@@ -40,16 +40,16 @@ public class IRecipeProvider extends RecipeProvider{
 
     private String getName(Block block) {
         String name;
-        if (block == IBlocks._9X_DIRT.get()) {
-            name = IBlocks._9X_DIRT_NAME;
-        } else if (block == IBlocks._81X_DIRT.get()) {
-            name = IBlocks._81X_DIRT_NAME;
-        } else if (block == IBlocks._729X_DIRT.get()) {
-            name = IBlocks._729X_DIRT_NAME;
-        } else if (block == IBlocks._6561X_DIRT.get()) {
-            name = IBlocks._6561X_DIRT_NAME;
-        } else if (block == IBlocks._59049X_DIRT.get()) {
-            name = IBlocks._59049X_DIRT_NAME;
+        if (block == IBlocks.COMPRESSED_DIRT.get()) {
+            name = IBlocks.COMPRESSED_DIRT_NAME;
+        } else if (block == IBlocks.DOUBLE_COMPRESSED_DIRT.get()) {
+            name = IBlocks.DOUBLE_COMPRESSED_DIRT_NAME;
+        } else if (block == IBlocks.TRIPLE_COMPRESSED_DIRT.get()) {
+            name = IBlocks.TRIPLE_COMPRESSED_DIRT_NAME;
+        } else if (block == IBlocks.QUADRUPLE_COMPRESSED_DIRT.get()) {
+            name = IBlocks.QUADRUPLE_COMPRESSED_DIRT_NAME;
+        } else if (block == IBlocks.QUINTUPLE_COMPRESSED_DIRT.get()) {
+            name = IBlocks.QUINTUPLE_COMPRESSED_DIRT_NAME;
         } else {
             name = "dirt";
         }

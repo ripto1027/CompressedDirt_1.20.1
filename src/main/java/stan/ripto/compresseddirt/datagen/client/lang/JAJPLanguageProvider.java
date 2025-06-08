@@ -12,11 +12,11 @@ public class JAJPLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        addBlock(IBlocks._9X_DIRT, "9倍土");
-        addBlock(IBlocks._81X_DIRT, "81倍土");
-        addBlock(IBlocks._729X_DIRT, "729倍土");
-        addBlock(IBlocks._6561X_DIRT, "6561倍土");
-        addBlock(IBlocks._59049X_DIRT, "59049倍土");
+        addBlock(IBlocks.COMPRESSED_DIRT, "圧縮土");
+        addBlock(IBlocks.DOUBLE_COMPRESSED_DIRT, "2倍圧縮土");
+        addBlock(IBlocks.TRIPLE_COMPRESSED_DIRT, "3倍圧縮土");
+        addBlock(IBlocks.QUADRUPLE_COMPRESSED_DIRT, "4倍圧縮土");
+        addBlock(IBlocks.QUINTUPLE_COMPRESSED_DIRT, "5倍圧縮土");
         addBlock(IBlocks.DIRT_GENERATOR, "土生成機");
         add("creativetabs.compressed_dirt_tab", "圧縮土");
     }

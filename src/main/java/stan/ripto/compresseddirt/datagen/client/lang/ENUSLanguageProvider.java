@@ -12,11 +12,11 @@ public class ENUSLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        addBlock(IBlocks._9X_DIRT, "9x Dirt");
-        addBlock(IBlocks._81X_DIRT, "81x Dirt");
-        addBlock(IBlocks._729X_DIRT, "729x Dirt");
-        addBlock(IBlocks._6561X_DIRT, "6561x Dirt");
-        addBlock(IBlocks._59049X_DIRT, "59049x Dirt");
+        addBlock(IBlocks.COMPRESSED_DIRT, "Compressed Dirt");
+        addBlock(IBlocks.DOUBLE_COMPRESSED_DIRT, "Double Compressed Dirt");
+        addBlock(IBlocks.TRIPLE_COMPRESSED_DIRT, "Triple Compressed Dirt");
+        addBlock(IBlocks.QUADRUPLE_COMPRESSED_DIRT, "Quadruple Compressed Dirt");
+        addBlock(IBlocks.QUINTUPLE_COMPRESSED_DIRT, "Quintuple Compressed Dirt");
         addBlock(IBlocks.DIRT_GENERATOR, "Dirt Generator");
         add("creativetabs.compressed_dirt_tab", "Compressed Dirt");
     }

@@ -27,7 +27,7 @@ public class DirtGeneratorBlock extends Block implements EntityBlock {
         if (type == IBlockEntity.DIRT_GENERATOR.get()) {
             return (lvl, pos, blockState, be) -> {
                 if (be instanceof DirtGeneratorBlockEntity entity) {
-                    entity.tick(lvl, pos, blockState);
+                    entity.tick(lvl, pos);
                 }
             };
         }

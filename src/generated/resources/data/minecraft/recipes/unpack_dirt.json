@@ -4,7 +4,7 @@
   "group": "unpack",
   "ingredients": [
     {
-      "item": "compresseddirt:9x_dirt"
+      "item": "compresseddirt:compressed_dirt"
     }
   ],
   "result": {

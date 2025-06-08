@@ -34,7 +34,7 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
         super(IBlockEntity.DIRT_GENERATOR.get(), pPos, pBlockState);
     }
 
-    public void tick(Level pLevel, BlockPos pPos, BlockState pBlockState) {
+    public void tick(Level pLevel, BlockPos pPos) {
         if (pLevel.isClientSide) return;
 
         ItemStack stack = inventory.getStackInSlot(0);

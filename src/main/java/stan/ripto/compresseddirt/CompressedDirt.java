@@ -19,4 +19,5 @@ public class CompressedDirt {
         ITab.TABS.register(bus);
         IBlockEntity.BLOCK_ENTITY.register(bus);
     }
+    //コンテナのスロットの位置は34, 34
 }

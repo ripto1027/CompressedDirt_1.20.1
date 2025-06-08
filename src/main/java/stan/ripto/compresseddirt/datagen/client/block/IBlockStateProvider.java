@@ -16,11 +16,11 @@ public class IBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlockWithItem(IBlocks._9X_DIRT.get());
-        simpleBlockWithItem(IBlocks._81X_DIRT.get());
-        simpleBlockWithItem(IBlocks._729X_DIRT.get());
-        simpleBlockWithItem(IBlocks._6561X_DIRT.get());
-        simpleBlockWithItem(IBlocks._59049X_DIRT.get());
+        simpleBlockWithItem(IBlocks.COMPRESSED_DIRT.get());
+        simpleBlockWithItem(IBlocks.DOUBLE_COMPRESSED_DIRT.get());
+        simpleBlockWithItem(IBlocks.TRIPLE_COMPRESSED_DIRT.get());
+        simpleBlockWithItem(IBlocks.QUADRUPLE_COMPRESSED_DIRT.get());
+        simpleBlockWithItem(IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
         simpleBlockWithItem(IBlocks.DIRT_GENERATOR.get());
     }
 

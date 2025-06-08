@@ -1,9 +1,9 @@
 {
   "values": [
-    "compresseddirt:9x_dirt",
-    "compresseddirt:81x_dirt",
-    "compresseddirt:729x_dirt",
-    "compresseddirt:6561x_dirt",
-    "compresseddirt:59049x_dirt"
+    "compresseddirt:compressed_dirt",
+    "compresseddirt:double_compressed_dirt",
+    "compresseddirt:triple_compressed_dirt",
+    "compresseddirt:quadruple_compressed_dirt",
+    "compresseddirt:quintuple_compressed_dirt"
   ]
 }

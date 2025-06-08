@@ -1,9 +1,9 @@
 {
-  "block.compresseddirt.59049x_dirt": "59049x Dirt",
-  "block.compresseddirt.6561x_dirt": "6561x Dirt",
-  "block.compresseddirt.729x_dirt": "729x Dirt",
-  "block.compresseddirt.81x_dirt": "81x Dirt",
-  "block.compresseddirt.9x_dirt": "9x Dirt",
+  "block.compresseddirt.compressed_dirt": "Compressed Dirt",
   "block.compresseddirt.dirt_generator": "Dirt Generator",
+  "block.compresseddirt.double_compressed_dirt": "Double Compressed Dirt",
+  "block.compresseddirt.quadruple_compressed_dirt": "Quadruple Compressed Dirt",
+  "block.compresseddirt.quintuple_compressed_dirt": "Quintuple Compressed Dirt",
+  "block.compresseddirt.triple_compressed_dirt": "Triple Compressed Dirt",
   "creativetabs.compressed_dirt_tab": "Compressed Dirt"
 }

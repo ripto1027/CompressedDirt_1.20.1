@@ -13,8 +13,8 @@ import stan.ripto.compresseddirt.datagen.client.lang.ENUSLanguageProvider;
 import stan.ripto.compresseddirt.datagen.client.lang.JAJPLanguageProvider;
 import stan.ripto.compresseddirt.datagen.server.recipe.IRecipeProvider;
 import stan.ripto.compresseddirt.datagen.server.loot.ILootTables;
-import stan.ripto.compresseddirt.datagen.server.tag.block.IBlockTagProvider;
-import stan.ripto.compresseddirt.datagen.server.tag.item.IItemTagProvider;
+import stan.ripto.compresseddirt.datagen.server.tag.block.IBlockTagsProvider;
+import stan.ripto.compresseddirt.datagen.server.tag.item.IItemTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -33,7 +33,7 @@ public class IDataGenerator {
 
         generator.addProvider(event.includeServer(), new IRecipeProvider(output));
         generator.addProvider(event.includeServer(), ILootTables.create(output));
-        IBlockTagProvider pBlockTags = generator.addProvider(event.includeServer(), new IBlockTagProvider(output, lookupProvider, efh));
-        generator.addProvider(event.includeServer(), new IItemTagProvider(output, lookupProvider, pBlockTags.contentsGetter(), efh));
+        IBlockTagsProvider pBlockTags = generator.addProvider(event.includeServer(), new IBlockTagsProvider(output, lookupProvider, efh));
+        generator.addProvider(event.includeServer(), new IItemTagsProvider(output, lookupProvider, pBlockTags.contentsGetter(), efh));
     }
 }

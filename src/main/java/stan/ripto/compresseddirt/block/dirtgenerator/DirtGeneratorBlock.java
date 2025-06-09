@@ -25,9 +25,9 @@ public class DirtGeneratorBlock extends Block implements EntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
         if (type == IBlockEntity.DIRT_GENERATOR.get()) {
-            return (lvl, pos, blockState, be) -> {
-                if (be instanceof DirtGeneratorBlockEntity entity) {
-                    entity.tick(lvl, pos);
+            return (pLevel, pPos, pBlockSate, pBlockEntity) -> {
+                if (pBlockEntity instanceof DirtGeneratorBlockEntity blockEntity) {
+                    blockEntity.tick(pLevel, pPos);
                 }
             };
         }

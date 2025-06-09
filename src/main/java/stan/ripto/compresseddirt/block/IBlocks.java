@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import stan.ripto.compresseddirt.CompressedDirt;
 import stan.ripto.compresseddirt.block.dirtgenerator.DirtGeneratorBlock;
+import stan.ripto.compresseddirt.block.dirtgenerator.DirtGeneratorBlockItem;
 import stan.ripto.compresseddirt.item.IItems;
 
 import java.util.function.Supplier;
@@ -17,23 +18,24 @@ import java.util.function.Supplier;
 public class IBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CompressedDirt.MOD_ID);
 
-    private static RegistryObject<Block> register(String name, Supplier<Block> supplier) {
-        RegistryObject<Block> reg = BLOCKS.register(name, supplier);
-        IItems.ITEMS.register(name, () -> new BlockItem(reg.get(), new Item.Properties()));
-        return reg;
-    }
-
-    private static RegistryObject<Block> register(String name) {
-        return register(name, () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
-    }
-
     public static final String COMPRESSED_DIRT_NAME = "compressed_dirt";
     public static final String DOUBLE_COMPRESSED_DIRT_NAME = "double_compressed_dirt";
     public static final String TRIPLE_COMPRESSED_DIRT_NAME = "triple_compressed_dirt";
     public static final String QUADRUPLE_COMPRESSED_DIRT_NAME = "quadruple_compressed_dirt";
     public static final String QUINTUPLE_COMPRESSED_DIRT_NAME = "quintuple_compressed_dirt";
-
     public static final String DIRT_GENERATOR_NAME = "dirt_generator";
+
+    private static RegistryObject<Block> register(String name, Supplier<Block> bSup, Supplier<Item> iSup) {
+        RegistryObject<Block> reg = BLOCKS.register(name, bSup);
+        IItems.ITEMS.register(name, iSup);
+        return reg;
+    }
+
+    private static RegistryObject<Block> register(String name) {
+        RegistryObject<Block> reg = BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
+        IItems.ITEMS.register(name, () -> new BlockItem(reg.get(), new Item.Properties()));
+        return reg;
+    }
 
     public static final RegistryObject<Block> COMPRESSED_DIRT = register(COMPRESSED_DIRT_NAME);
     public static final RegistryObject<Block> DOUBLE_COMPRESSED_DIRT = register(DOUBLE_COMPRESSED_DIRT_NAME);
@@ -41,7 +43,11 @@ public class IBlocks {
     public static final RegistryObject<Block> QUADRUPLE_COMPRESSED_DIRT = register(QUADRUPLE_COMPRESSED_DIRT_NAME);
     public static final RegistryObject<Block> QUINTUPLE_COMPRESSED_DIRT = register(QUINTUPLE_COMPRESSED_DIRT_NAME);
 
-    public static final RegistryObject<Block> DIRT_GENERATOR = register(DIRT_GENERATOR_NAME, () -> new DirtGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> DIRT_GENERATOR = register(
+            DIRT_GENERATOR_NAME,
+            () -> new DirtGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.STONE)),
+            () -> new DirtGeneratorBlockItem(new Item.Properties())
+    );
 
     public static String getName(Block block) {
         String name = "";

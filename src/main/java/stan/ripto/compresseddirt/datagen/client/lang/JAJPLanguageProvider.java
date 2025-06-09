@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 import stan.ripto.compresseddirt.CompressedDirt;
 import stan.ripto.compresseddirt.block.IBlocks;
+import stan.ripto.compresseddirt.block.dirtgenerator.DirtGeneratorBlockItem;
 
 public class JAJPLanguageProvider extends LanguageProvider {
     public JAJPLanguageProvider(PackOutput output) {
@@ -19,5 +20,6 @@ public class JAJPLanguageProvider extends LanguageProvider {
         addBlock(IBlocks.QUINTUPLE_COMPRESSED_DIRT, "5倍圧縮土");
         addBlock(IBlocks.DIRT_GENERATOR, "土生成機");
         add("creativetabs.compressed_dirt_tab", "圧縮土");
+        add(DirtGeneratorBlockItem.getKey(), "%1$s(%2$d, %3$d, %4$d)にリンクされました。");
     }
 }

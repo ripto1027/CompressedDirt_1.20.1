@@ -30,6 +30,8 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
         }
     };
 
+    private BlockPos target;
+
     public DirtGeneratorBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(IBlockEntity.DIRT_GENERATOR.get(), pPos, pBlockState);
     }
@@ -44,13 +46,22 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
             stack.grow(1);
         }
 
-        BlockEntity above = pLevel.getBlockEntity(pPos.above());
-        if (above != null) {
-            above.getCapability(ForgeCapabilities.ITEM_HANDLER, Direction.DOWN).ifPresent(target -> {
-                ItemStack remainder = ItemHandlerHelper.insertItem(target, inventory.getStackInSlot(0), false);
-                inventory.setStackInSlot(0, remainder);
-            });
+        if (target != null) {
+            if (pLevel.isLoaded(target)) {
+                BlockEntity targetEntity = pLevel.getBlockEntity(target);
+                if (targetEntity != null) {
+                    targetEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(targetHandler -> {
+                        ItemStack extracted = ItemHandlerHelper.insertItem(targetHandler, inventory.getStackInSlot(0), false);
+                        inventory.setStackInSlot(0, extracted);
+                    });
+                }
+            }
         }
+    }
+
+    public void setTarget(BlockPos pos) {
+        target = pos;
+        setChanged();
     }
 
     private static final String SAVE_KEY_INVENTORY = "inventory";
@@ -59,12 +70,18 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
     public void load(@NotNull CompoundTag pTag) {
         super.load(pTag);
         inventory.deserializeNBT(pTag.getCompound(SAVE_KEY_INVENTORY));
+        if (pTag.contains("Target")) {
+            target = BlockPos.of(pTag.getLong("Target"));
+        }
     }
 
     @Override
     protected void saveAdditional(@NotNull CompoundTag pTag) {
         super.saveAdditional(pTag);
         pTag.put(SAVE_KEY_INVENTORY, inventory.serializeNBT());
+        if (target != null) {
+            pTag.putLong("Target", target.asLong());
+        }
     }
 
     public LazyOptional<ItemStackHandler> getInventoryCapability() {

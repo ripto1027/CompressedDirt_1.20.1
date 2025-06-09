@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 import stan.ripto.compresseddirt.CompressedDirt;
 import stan.ripto.compresseddirt.block.IBlocks;
+import stan.ripto.compresseddirt.block.dirtgenerator.DirtGeneratorBlockItem;
 
 public class ENUSLanguageProvider extends LanguageProvider {
     public ENUSLanguageProvider(PackOutput output) {
@@ -19,5 +20,6 @@ public class ENUSLanguageProvider extends LanguageProvider {
         addBlock(IBlocks.QUINTUPLE_COMPRESSED_DIRT, "Quintuple Compressed Dirt");
         addBlock(IBlocks.DIRT_GENERATOR, "Dirt Generator");
         add("creativetabs.compressed_dirt_tab", "Compressed Dirt");
+        add(DirtGeneratorBlockItem.getKey(), "Linked to %1$s (%2$d, %3$d, %4$d).");
     }
 }

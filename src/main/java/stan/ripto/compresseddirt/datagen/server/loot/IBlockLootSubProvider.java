@@ -3,8 +3,10 @@ package stan.ripto.compresseddirt.datagen.server.loot;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+import stan.ripto.compresseddirt.CompressedDirt;
 import stan.ripto.compresseddirt.block.IBlocks;
 
 import java.util.Set;

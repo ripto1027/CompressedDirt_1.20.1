@@ -1,6 +1,6 @@
 This text has been translated using a translation tool.
 
-This mod adds Compressed Dirt, 2x Compressed Dirt, 3x Compressed Dirt, 4x Compressed Dirt, and 5x Compressed Dirt, as well as a Dirt Generator, which are more efficient soils than normal dirt for use in BotanyPots.
+This mod adds Compressed Dirt, Double Compressed Dirt, Triple Compressed Dirt, Quadruple Compressed Dirt, and Quintuple Compressed Dirt, as well as a Dirt Generator, which are more efficient soils than normal dirt for use in BotanyPots.
 
 Each type of compressed dirt can be crafted simply by combining either regular dirt or the lower-tier compressed dirt in a 3x3 grid (9 items total). The Dirt Generator can be crafted by combining four pieces of 2x Compressed Dirt, but please note that this recipe is planned to change in a future update.
 

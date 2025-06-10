@@ -1,5 +1,3 @@
-
-<Guide>
 This text has been translated using a translation tool.
 
 This mod adds Compressed Dirt, 2x Compressed Dirt, 3x Compressed Dirt, 4x Compressed Dirt, and 5x Compressed Dirt, as well as a Dirt Generator, which are more efficient soils than normal dirt for use in BotanyPots.
@@ -10,7 +8,7 @@ When holding the Dirt Generator in the main hand, you can register the coordinat
 
 The required dependencies for this mod are Bookshelf and BotanyPots.
 
-<説明>
+
 BotanyPotsで通常の土よりも性能の良い土壌である圧縮土、2倍圧縮土、3倍圧縮土、4倍圧縮土、5倍圧縮土と土生成機を追加するModです。
 
 各圧縮土の作り方は、土もしくは下位の圧縮土を9個固めるだけです。土生成機は2倍圧縮土を4つ固めると作れるようになっていますが、このレシピはそのうち変更する予定です。

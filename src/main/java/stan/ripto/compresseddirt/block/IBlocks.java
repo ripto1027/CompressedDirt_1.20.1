@@ -46,7 +46,7 @@ public class IBlocks {
     public static final RegistryObject<Block> DIRT_GENERATOR = register(
             DIRT_GENERATOR_NAME,
             () -> new DirtGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.STONE)),
-            () -> new DirtGeneratorBlockItem(new Item.Properties())
+            () -> new DirtGeneratorBlockItem(new Item.Properties().stacksTo(1))
     );
 
     public static String getName(Block block) {

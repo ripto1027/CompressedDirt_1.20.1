@@ -6,5 +6,6 @@
   "block.compresseddirt.quintuple_compressed_dirt": "Quintuple Compressed Dirt",
   "block.compresseddirt.triple_compressed_dirt": "Triple Compressed Dirt",
   "creativetabs.compressed_dirt_tab": "Compressed Dirt",
-  "message.compresseddirt.linked": "Linked to %1$s (%2$d, %3$d, %4$d)."
+  "message.compresseddirt.linked": "Linked to %1$s (%2$d, %3$d, %4$d).",
+  "message.compresseddirt.unlinked": "The link has been resolved."
 }

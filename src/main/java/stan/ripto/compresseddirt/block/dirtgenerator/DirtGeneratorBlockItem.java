@@ -15,7 +15,8 @@ import org.jetbrains.annotations.NotNull;
 import stan.ripto.compresseddirt.block.IBlocks;
 
 public class DirtGeneratorBlockItem extends BlockItem {
-    private static final String key = "message.compresseddirt.linked";
+    private static final String linkedKey = "message.compresseddirt.linked";
+    private static final String unlinkedKey = "message.compresseddirt.unlinked";
 
     public DirtGeneratorBlockItem(Properties pProperties) {
         super(IBlocks.DIRT_GENERATOR.get(), pProperties);
@@ -33,7 +34,18 @@ public class DirtGeneratorBlockItem extends BlockItem {
                     tag.putLong("Target", pos.asLong());
                     if (level.isClientSide) {
                         String name = block.getBlockState().getBlock().getName().getString();
-                        pContext.getPlayer().displayClientMessage(Component.translatable(key, name, pos.getX(), pos.getY(), pos.getZ()), true);
+                        pContext.getPlayer().displayClientMessage(Component.translatable(linkedKey, name, pos.getX(), pos.getY(), pos.getZ()), true);
+                    }
+                    return InteractionResult.SUCCESS;
+                }
+            }
+        } else {
+            if (pContext.getPlayer() != null && pContext.getPlayer().isShiftKeyDown()) {
+                CompoundTag tag = pContext.getItemInHand().getTag();
+                if (!tag.isEmpty()) {
+                    tag.remove("Target");
+                    if (level.isClientSide) {
+                        pContext.getPlayer().displayClientMessage(Component.translatable(unlinkedKey), true);
                     }
                     return InteractionResult.SUCCESS;
                 }
@@ -59,7 +71,11 @@ public class DirtGeneratorBlockItem extends BlockItem {
         return placed;
     }
 
-    public static String getKey() {
-        return key;
+    public static String getLinkedKey() {
+        return linkedKey;
+    }
+
+    public static String getUnlinkedKey() {
+        return unlinkedKey;
     }
 }

@@ -27,11 +27,11 @@ public class DirtGeneratorBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity block = pLevel.getBlockEntity(pPos);
-            if (block instanceof DirtGeneratorBlockEntity) {
-                ((DirtGeneratorBlockEntity) block).dropItems();
+            if (block instanceof DirtGeneratorBlockEntity iBlock) {
+                iBlock.dropItems();
+                iBlock.removeTarget();
             }
         }
-
         super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
     }
 

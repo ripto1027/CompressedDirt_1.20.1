@@ -46,7 +46,7 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
         }
     };
 
-    private final LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private final LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.of(() -> inventory);
     private BlockPos target;
 
     public DirtGeneratorBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -81,6 +81,14 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
     public void setTarget(BlockPos pos) {
         target = pos;
         setChanged();
+    }
+
+    public void removeTarget() {
+        if (target != null) {
+            this.getUpdateTag().remove("Target");
+            target = null;
+            setChanged();
+        }
     }
 
     public void dropItems() {

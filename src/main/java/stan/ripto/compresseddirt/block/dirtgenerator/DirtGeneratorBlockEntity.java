@@ -46,7 +46,7 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
         }
     };
 
-    private final LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.of(() -> inventory);
+    private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> inventory);
     private BlockPos target;
 
     public DirtGeneratorBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -65,15 +65,13 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
             stack.grow(1);
         }
 
-        if (target != null) {
-            if (pLevel.isLoaded(target)) {
-                BlockEntity targetEntity = pLevel.getBlockEntity(target);
-                if (targetEntity != null) {
-                    targetEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(targetHandler -> {
-                        ItemStack extracted = ItemHandlerHelper.insertItem(targetHandler, inventory.getStackInSlot(0), false);
-                        inventory.setStackInSlot(0, extracted);
-                    });
-                }
+        if (target != null && pLevel.isLoaded(target)) {
+            BlockEntity targetEntity = pLevel.getBlockEntity(target);
+            if (targetEntity != null) {
+                targetEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(targetHandler -> {
+                    ItemStack extracted = ItemHandlerHelper.insertItem(targetHandler, inventory.getStackInSlot(0), false);
+                    inventory.setStackInSlot(0, extracted);
+                });
             }
         }
     }
@@ -92,8 +90,20 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
     }
 
     public void dropItems() {
-        SimpleContainer inv = new SimpleContainer(inventory.getSlots());
-        inv.setItem(0, inventory.getStackInSlot(0));
+        ItemStack stack = inventory.getStackInSlot(0);
+        int count = inventory.getStackInSlot(0).getCount();
+        double result = (double) count / 64;
+        double roundResult = Math.floor(result);
+        int size = (int) roundResult + 1;
+        int mod = count % 64;
+        SimpleContainer inv = new SimpleContainer(size);
+        for (int i = 0; i < inv.getContainerSize(); i++) {
+            if (i != inv.getContainerSize() - 1) {
+                inv.setItem(i, new ItemStack(stack.getItem(), 64));
+            } else {
+                inv.setItem(i, new ItemStack(stack.getItem(), mod));
+            }
+        }
         Containers.dropContents(Objects.requireNonNull(level), worldPosition, inv);
     }
 
@@ -121,15 +131,16 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
+            return handler.cast();
+        } else {
+            return super.getCapability(cap, side);
         }
-        return super.getCapability(cap, side);
     }
 
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
-        lazyItemHandler.invalidate();
+        handler.invalidate();
     }
 
     @Nullable

@@ -3,8 +3,12 @@ package stan.ripto.compresseddirt.block.dirtgenerator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -22,50 +26,53 @@ public class DirtGeneratorBlockItem extends BlockItem {
         super(IBlocks.DIRT_GENERATOR.get(), pProperties);
     }
 
+    @NotNull
     @Override
-    public @NotNull InteractionResult useOn(UseOnContext pContext) {
+    public InteractionResult useOn(@NotNull UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos pos = pContext.getClickedPos();
-        BlockEntity block = level.getBlockEntity(pos);
-        if (block != null) {
-            if (block.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent()) {
-                if (pContext.getPlayer() != null && pContext.getPlayer().isShiftKeyDown()) {
-                    CompoundTag tag = pContext.getItemInHand().getOrCreateTag();
-                    tag.putLong("Target", pos.asLong());
-                    if (level.isClientSide) {
-                        String name = block.getBlockState().getBlock().getName().getString();
-                        pContext.getPlayer().displayClientMessage(Component.translatable(linkedKey, name, pos.getX(), pos.getY(), pos.getZ()), true);
-                    }
-                    return InteractionResult.SUCCESS;
-                }
+        Player player = pContext.getPlayer();
+        BlockEntity be = level.getBlockEntity(pos);
+
+        if (be != null && player != null && player.isShiftKeyDown() && be.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent()) {
+            CompoundTag tag = pContext.getItemInHand().getOrCreateTag();
+            tag.putLong("Target", pos.asLong());
+            if (level.isClientSide()) {
+                String name = be.getBlockState().getBlock().getName().getString();
+                pContext.getPlayer().displayClientMessage(Component.translatable(linkedKey, name, pos.getX(), pos.getY(), pos.getZ()), true);
             }
+            return InteractionResult.SUCCESS;
         } else {
-            if (pContext.getPlayer() != null && pContext.getPlayer().isShiftKeyDown()) {
-                CompoundTag tag = pContext.getItemInHand().getTag();
-                if (!tag.isEmpty()) {
-                    tag.remove("Target");
-                    if (level.isClientSide) {
-                        pContext.getPlayer().displayClientMessage(Component.translatable(unlinkedKey), true);
-                    }
-                    return InteractionResult.SUCCESS;
-                }
-            }
+            return super.useOn(pContext);
         }
-        return super.useOn(pContext);
+    }
+
+    @NotNull
+    @Override
+    public InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, @NotNull Player pPlayer, @NotNull InteractionHand pUsedHand) {
+        ItemStack stack = pPlayer.getItemInHand(pUsedHand);
+        CompoundTag tag = stack.getTag();
+        if (pPlayer.isShiftKeyDown() && tag != null && tag.contains("Target")) {
+            tag.remove("Target");
+            if (pLevel.isClientSide()) {
+                pPlayer.displayClientMessage(Component.translatable(unlinkedKey), true);
+            }
+            return InteractionResultHolder.success(stack);
+        } else {
+            return InteractionResultHolder.fail(stack);
+        }
     }
 
     @Override
     protected boolean placeBlock(@NotNull BlockPlaceContext pContext, @NotNull BlockState pState) {
         boolean placed = super.placeBlock(pContext, pState);
-        if (placed && pContext.getItemInHand().hasTag()) {
-            CompoundTag tag = pContext.getItemInHand().getTag();
-            if (tag != null && tag.contains("Target")) {
-                BlockPos pos = pContext.getClickedPos();
-                BlockEntity blockEntity = pContext.getLevel().getBlockEntity(pos);
-                if (blockEntity instanceof DirtGeneratorBlockEntity iBlockEntity) {
-                    BlockPos target = BlockPos.of(tag.getLong("Target"));
-                    iBlockEntity.setTarget(target);
-                }
+        CompoundTag tag = pContext.getItemInHand().getTag();
+        if (placed && tag != null && tag.contains("Target")) {
+            BlockPos pos = pContext.getClickedPos();
+            BlockEntity be = pContext.getLevel().getBlockEntity(pos);
+            if (be instanceof DirtGeneratorBlockEntity ibe) {
+                BlockPos target = BlockPos.of(tag.getLong("Target"));
+                ibe.setTarget(target);
             }
         }
         return placed;

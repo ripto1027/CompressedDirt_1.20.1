@@ -81,14 +81,6 @@ public class DirtGeneratorBlockEntity extends BlockEntity {
         setChanged();
     }
 
-    public void removeTarget() {
-        if (target != null) {
-            this.getUpdateTag().remove("Target");
-            target = null;
-            setChanged();
-        }
-    }
-
     public void dropItems() {
         ItemStack stack = inventory.getStackInSlot(0);
         int count = inventory.getStackInSlot(0).getCount();

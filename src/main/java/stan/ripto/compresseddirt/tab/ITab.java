@@ -26,6 +26,7 @@ public class ITab {
                                     pOutput.accept(IBlocks.TRIPLE_COMPRESSED_DIRT.get());
                                     pOutput.accept(IBlocks.QUADRUPLE_COMPRESSED_DIRT.get());
                                     pOutput.accept(IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
+                                    pOutput.accept(IBlocks.SEXTUPLE_COMPRESSED_DIRT.get());
                                     pOutput.accept(IBlocks.DIRT_GENERATOR.get());
                                 }
                         )

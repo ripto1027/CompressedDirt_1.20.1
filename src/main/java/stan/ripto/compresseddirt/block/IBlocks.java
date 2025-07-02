@@ -23,6 +23,7 @@ public class IBlocks {
     public static final String TRIPLE_COMPRESSED_DIRT_NAME = "triple_compressed_dirt";
     public static final String QUADRUPLE_COMPRESSED_DIRT_NAME = "quadruple_compressed_dirt";
     public static final String QUINTUPLE_COMPRESSED_DIRT_NAME = "quintuple_compressed_dirt";
+    public static final String SEXTUPLE_COMPRESSED_DIRT_NAME = "sextuple_compressed_dirt";
     public static final String DIRT_GENERATOR_NAME = "dirt_generator";
 
     private static RegistryObject<Block> register(String name, Supplier<Block> bSup, Supplier<Item> iSup) {
@@ -42,6 +43,7 @@ public class IBlocks {
     public static final RegistryObject<Block> TRIPLE_COMPRESSED_DIRT = register(TRIPLE_COMPRESSED_DIRT_NAME);
     public static final RegistryObject<Block> QUADRUPLE_COMPRESSED_DIRT = register(QUADRUPLE_COMPRESSED_DIRT_NAME);
     public static final RegistryObject<Block> QUINTUPLE_COMPRESSED_DIRT = register(QUINTUPLE_COMPRESSED_DIRT_NAME);
+    public static final RegistryObject<Block> SEXTUPLE_COMPRESSED_DIRT = register(SEXTUPLE_COMPRESSED_DIRT_NAME);
 
     public static final RegistryObject<Block> DIRT_GENERATOR = register(
             DIRT_GENERATOR_NAME,
@@ -61,6 +63,8 @@ public class IBlocks {
             name = IBlocks.QUADRUPLE_COMPRESSED_DIRT_NAME;
         } else if (block == IBlocks.QUINTUPLE_COMPRESSED_DIRT.get()) {
             name = IBlocks.QUINTUPLE_COMPRESSED_DIRT_NAME;
+        } else if (block == IBlocks.SEXTUPLE_COMPRESSED_DIRT.get()) {
+            name = IBlocks.SEXTUPLE_COMPRESSED_DIRT_NAME;
         } else if (block == IBlocks.DIRT_GENERATOR.get()) {
             name = IBlocks.DIRT_GENERATOR_NAME;
         }

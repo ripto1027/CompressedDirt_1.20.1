@@ -18,6 +18,7 @@ public class ENUSLanguageProvider extends LanguageProvider {
         addBlock(IBlocks.TRIPLE_COMPRESSED_DIRT, "Triple Compressed Dirt");
         addBlock(IBlocks.QUADRUPLE_COMPRESSED_DIRT, "Quadruple Compressed Dirt");
         addBlock(IBlocks.QUINTUPLE_COMPRESSED_DIRT, "Quintuple Compressed Dirt");
+        addBlock(IBlocks.SEXTUPLE_COMPRESSED_DIRT, "Sextuple Compressed Dirt");
         addBlock(IBlocks.DIRT_GENERATOR, "Dirt Generator");
         add("creativetabs.compressed_dirt_tab", "Compressed Dirt");
         add(DirtGeneratorBlockItem.getLinkedKey(), "Linked to %1$s (%2$d, %3$d, %4$d).");

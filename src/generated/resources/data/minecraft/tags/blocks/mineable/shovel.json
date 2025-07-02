@@ -5,6 +5,7 @@
     "compresseddirt:triple_compressed_dirt",
     "compresseddirt:quadruple_compressed_dirt",
     "compresseddirt:quintuple_compressed_dirt",
+    "compresseddirt:sextuple_compressed_dirt",
     "compresseddirt:dirt_generator"
   ]
 }

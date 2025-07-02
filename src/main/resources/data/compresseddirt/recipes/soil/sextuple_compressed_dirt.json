@@ -1,0 +1,13 @@
+{
+  "type": "botanypots:soil",
+  "input": {
+    "item": "compresseddirt:sextuple_compressed_dirt"
+  },
+  "display": {
+    "block": "compresseddirt:sextuple_compressed_dirt"
+  },
+  "categories": [
+    "dirt"
+  ],
+  "growthModifier": 12
+}

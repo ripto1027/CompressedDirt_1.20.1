@@ -22,6 +22,7 @@ public class IRecipeProvider extends RecipeProvider{
         nineBlockStorageRecipes(pWriter, IBlocks.DOUBLE_COMPRESSED_DIRT.get(), IBlocks.TRIPLE_COMPRESSED_DIRT.get());
         nineBlockStorageRecipes(pWriter, IBlocks.TRIPLE_COMPRESSED_DIRT.get(), IBlocks.QUADRUPLE_COMPRESSED_DIRT.get());
         nineBlockStorageRecipes(pWriter, IBlocks.QUADRUPLE_COMPRESSED_DIRT.get(), IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
+        nineBlockStorageRecipes(pWriter, IBlocks.QUINTUPLE_COMPRESSED_DIRT.get(), IBlocks.SEXTUPLE_COMPRESSED_DIRT.get());
         shaped(pWriter, IBlocks.DIRT_GENERATOR.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get());
     }
 
@@ -50,6 +51,8 @@ public class IRecipeProvider extends RecipeProvider{
             name = IBlocks.QUADRUPLE_COMPRESSED_DIRT_NAME;
         } else if (block == IBlocks.QUINTUPLE_COMPRESSED_DIRT.get()) {
             name = IBlocks.QUINTUPLE_COMPRESSED_DIRT_NAME;
+        } else if (block == IBlocks.SEXTUPLE_COMPRESSED_DIRT.get()) {
+            name = IBlocks.SEXTUPLE_COMPRESSED_DIRT_NAME;
         } else {
             name = "dirt";
         }

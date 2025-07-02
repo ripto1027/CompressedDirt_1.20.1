@@ -21,6 +21,7 @@ public class IBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(IBlocks.TRIPLE_COMPRESSED_DIRT.get());
         simpleBlockWithItem(IBlocks.QUADRUPLE_COMPRESSED_DIRT.get());
         simpleBlockWithItem(IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
+        simpleBlockWithItem(IBlocks.SEXTUPLE_COMPRESSED_DIRT.get());
         simpleBlockWithItem(IBlocks.DIRT_GENERATOR.get());
     }
 

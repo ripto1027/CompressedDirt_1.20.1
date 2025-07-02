@@ -23,6 +23,7 @@ public class IBlockLootSubProvider extends BlockLootSubProvider {
         dropSelf(IBlocks.TRIPLE_COMPRESSED_DIRT.get());
         dropSelf(IBlocks.QUADRUPLE_COMPRESSED_DIRT.get());
         dropSelf(IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
+        dropSelf(IBlocks.SEXTUPLE_COMPRESSED_DIRT.get());
         dropSelf(IBlocks.DIRT_GENERATOR.get());
     }
 

@@ -18,6 +18,7 @@ public class JAJPLanguageProvider extends LanguageProvider {
         addBlock(IBlocks.TRIPLE_COMPRESSED_DIRT, "3倍圧縮土");
         addBlock(IBlocks.QUADRUPLE_COMPRESSED_DIRT, "4倍圧縮土");
         addBlock(IBlocks.QUINTUPLE_COMPRESSED_DIRT, "5倍圧縮土");
+        addBlock(IBlocks.SEXTUPLE_COMPRESSED_DIRT, "6倍圧縮土");
         addBlock(IBlocks.DIRT_GENERATOR, "土生成機");
         add("creativetabs.compressed_dirt_tab", "圧縮土");
         add(DirtGeneratorBlockItem.getLinkedKey(), "%1$s(%2$d, %3$d, %4$d)にリンクされました。");

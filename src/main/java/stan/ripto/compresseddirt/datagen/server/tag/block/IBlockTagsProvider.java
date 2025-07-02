@@ -21,9 +21,9 @@ public class IBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(@NotNull HolderLookup.Provider pProvider) {
-        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(IBlocks.COMPRESSED_DIRT.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get(), IBlocks.TRIPLE_COMPRESSED_DIRT.get(), IBlocks.QUADRUPLE_COMPRESSED_DIRT.get(), IBlocks.QUINTUPLE_COMPRESSED_DIRT.get(), IBlocks.DIRT_GENERATOR.get());
-        tag(BlockTags.DIRT).add(IBlocks.COMPRESSED_DIRT.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get(), IBlocks.TRIPLE_COMPRESSED_DIRT.get(), IBlocks.QUADRUPLE_COMPRESSED_DIRT.get(), IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
-        tag(ITags.Blocks.STORAGE_BLOCKS_DIRT).add(IBlocks.COMPRESSED_DIRT.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get(), IBlocks.TRIPLE_COMPRESSED_DIRT.get(), IBlocks.QUADRUPLE_COMPRESSED_DIRT.get(), IBlocks.QUINTUPLE_COMPRESSED_DIRT.get());
+        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(IBlocks.COMPRESSED_DIRT.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get(), IBlocks.TRIPLE_COMPRESSED_DIRT.get(), IBlocks.QUADRUPLE_COMPRESSED_DIRT.get(), IBlocks.QUINTUPLE_COMPRESSED_DIRT.get(), IBlocks.SEXTUPLE_COMPRESSED_DIRT.get(), IBlocks.DIRT_GENERATOR.get());
+        tag(BlockTags.DIRT).add(IBlocks.COMPRESSED_DIRT.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get(), IBlocks.TRIPLE_COMPRESSED_DIRT.get(), IBlocks.QUADRUPLE_COMPRESSED_DIRT.get(), IBlocks.QUINTUPLE_COMPRESSED_DIRT.get(), IBlocks.SEXTUPLE_COMPRESSED_DIRT.get());
+        tag(ITags.Blocks.STORAGE_BLOCKS_DIRT).add(IBlocks.COMPRESSED_DIRT.get(), IBlocks.DOUBLE_COMPRESSED_DIRT.get(), IBlocks.TRIPLE_COMPRESSED_DIRT.get(), IBlocks.QUADRUPLE_COMPRESSED_DIRT.get(), IBlocks.QUINTUPLE_COMPRESSED_DIRT.get(), IBlocks.SEXTUPLE_COMPRESSED_DIRT.get());
         tag(Tags.Blocks.STORAGE_BLOCKS).addTags(ITags.Blocks.STORAGE_BLOCKS_DIRT);
         tag(ITags.Blocks.GENERATORS).add(IBlocks.DIRT_GENERATOR.get());
     }
